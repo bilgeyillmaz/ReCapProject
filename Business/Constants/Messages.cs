@@ -12,5 +12,9 @@ namespace Business.Constants
         public static string CarAdded="Araç eklenmiştir.";
         public static string CarIsNotAvailable="Araç kiralanmaya uygun değildir.";
         public static string CarRentalAdded="Kiralanan araç eklenmiştir.";
+        public static string CarImageLimit="Araç fotoğrafı limitini aştınız.";
+        public static string ImageNotFound="Resim/ Fotoğraf bulanamadı.";
+        public static string ImageDeleted="Resim/ Fotoğraf silindi.";
+        public static string ImageUpdated="Resim/Fotoğraf başarıyla güncellendi.";
     }
 }
