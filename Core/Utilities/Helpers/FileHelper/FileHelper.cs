@@ -20,7 +20,7 @@ namespace Core.Utilities.Helpers.FileHelper
             {
                 return new ErrorResult(result.Message);
             }
-            var type = Path.GetExtension(file.FileName);//gelen dosyanın uzantısını alıyoruz
+            var type = Path.GetExtension(file.FileName);
             var typeValid = CheckFileTypeValid(type);
             var randomName = Guid.NewGuid().ToString();
 
@@ -37,7 +37,6 @@ namespace Core.Utilities.Helpers.FileHelper
             DeleteOldImageFile((_currentDirectory + imagePath).Replace("/", "\\"));
             return new SuccessResult();
         }
-
         public static IResult Update(IFormFile file, string imagePath)
         {
             var result = CheckIfFileExists(file);
@@ -45,7 +44,7 @@ namespace Core.Utilities.Helpers.FileHelper
             {
                 return result;
             }
-            var type = Path.GetExtension(file.FileName);//gelen dosyanın uzantısını alıyoruz
+            var type = Path.GetExtension(file.FileName);
             var typeValid = CheckFileTypeValid(type);
             var randomName = Guid.NewGuid().ToString();
             var fileName = randomName + type;
@@ -59,24 +58,22 @@ namespace Core.Utilities.Helpers.FileHelper
             CreateImageFile(_currentDirectory + _folderName + randomName + type, file);
             return new SuccessResult((_folderName + randomName + type).Replace("\\", "/"));
         }
-
         private static IResult CheckIfFileExists(IFormFile file)
         {
             if (file != null && file.Length > 0)
             {
                 return new SuccessResult();
             }
-            return new ErrorResult("File doesn't exists.");
+            return new ErrorResult("Bu dosya bulunamamaktadır.");
         }
         private static IResult CheckFileTypeValid(string type)
         {
             if (type != ".jpeg" && type != ".png" && type != ".jpg")
             {
-                return new ErrorResult("Wrong file type.");
+                return new ErrorResult("Yanlış dosya türü.");
             }
             return new SuccessResult();
         }
-
         private static void CheckIfDirectoryExists(string directory)
         {
             if (!Directory.Exists(directory))
