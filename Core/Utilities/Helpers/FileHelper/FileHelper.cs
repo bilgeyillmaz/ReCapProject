@@ -40,7 +40,7 @@ namespace Core.Utilities.Helpers.FileHelper
         public static IResult Update(IFormFile file, string imagePath)
         {
             var result = CheckIfFileExists(file);
-            if (result != null)
+            if (result == null)
             {
                 return result;
             }
@@ -49,7 +49,7 @@ namespace Core.Utilities.Helpers.FileHelper
             var randomName = Guid.NewGuid().ToString();
             var fileName = randomName + type;
 
-            if (typeValid != null)
+            if (typeValid == null)
             {
                 return typeValid;
             }

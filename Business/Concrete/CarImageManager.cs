@@ -45,7 +45,7 @@ namespace Business.Concrete
         public IResult Delete(CarImage carImage)
         {
             var result = _carImageDal.Get(c => c.Id == carImage.Id);
-            if(result == null)
+            if(result != null)
             {
                 return new ErrorResult(Messages.ImageNotFound);   
             }
