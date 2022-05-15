@@ -15,6 +15,7 @@ namespace Core.Utilities.Helpers.FileHelper
         private static string _folderName = "\\Images\\";
         public static IResult Upload(IFormFile file)
         {
+
             var result = CheckIfFileExists(file);
             if (result.Message != null)
             {
